@@ -44,13 +44,22 @@ namespace Test_Average
         {
             // Declare a variable to hold the highest value, and
             // initialize it with the first value in the array.
+            int highest = iArray[0];
 
             // Step through the rest of the array, beginning at
             // element 1. When a value greater than highest is found,
             // assign that value to highest.
+            for (int i = 1; i < iArray.Length; i++)
+            {
+                if (iArray[i] > highest)
+                {
+                    highest = iArray[i];
+                }
+            }
+            
 
             // Return the highest value.
-            return 0;
+            return highest;
         }
 
         // The Lowest method accepts an int array argument
@@ -59,13 +68,20 @@ namespace Test_Average
         {
             // Declare a variable to hold the lowest value, and
             // initialize it with the first value in the array.
-
+            int lowest = iArray[0];
             // Step through the rest of the array, beginning at
             // element 1. When a value less than lowest is found,
             // assign that value to lowest.
+            for (int i = 1; i < iArray.Length; i++)
+            {
+                if (iArray[i] < lowest)
+                {
+                    lowest = iArray[i];
+                }
+            }
 
             // Return the lowest value.
-            return 0;
+            return lowest;
         }
 
         private void getScoresButton_Click(object sender, EventArgs e)

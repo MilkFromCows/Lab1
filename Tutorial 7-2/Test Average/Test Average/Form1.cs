@@ -32,7 +32,7 @@ namespace Test_Average
             }
 
             // Calculate the average.
-            average = (double) total / iArray.Length;
+            average = (double)total / iArray.Length;
 
             // Return the average.
             return average;
@@ -56,7 +56,6 @@ namespace Test_Average
                     highest = iArray[i];
                 }
             }
-            
 
             // Return the highest value.
             return highest;
@@ -69,6 +68,7 @@ namespace Test_Average
             // Declare a variable to hold the lowest value, and
             // initialize it with the first value in the array.
             int lowest = iArray[0];
+
             // Step through the rest of the array, beginning at
             // element 1. When a value less than lowest is found,
             // assign that value to lowest.
@@ -98,6 +98,7 @@ namespace Test_Average
                 StreamReader inputFile;        // For file input
 
                 // TODO:  declare a variable, scores, that will store 5 integers
+                int[] scores = new int[SIZE];
 
                 // Open the file and get a StreamReader object.
                 inputFile = File.OpenText("TestScores.txt");
@@ -106,20 +107,34 @@ namespace Test_Average
                 while (!inputFile.EndOfStream && index < SIZE)
                 {
                     // TODO:  read a line from the file, convert to int put in score 
+                    score = int.Parse(inputFile.ReadLine());
                     // put score in the array at the current index
+                    scores[index] = score;
                     // increment the index
+                    index++;
                 }
 
                 // Close the file.
                 inputFile.Close();
 
                 // iterate through the array using a foreach loop
-                // and add one item at a time to the listbox
+                foreach (int value in scores)
+                {
+                    // and add one item at a time to the listbox
+                    testScoresListBox.Items.Add(value);
+                }
+
 
                 // Get the highest, lowest, and average scores.
                 // Use the methods
+                highestScore = Highest(scores);
+                lowestScore = Lowest(scores);
+                averageScore = Average(scores);
 
-                // Display the values, highest, lowest and average 
+                // Display the values, highest, lowest and average
+                highScoreLabel.Text = highestScore.ToString();
+                lowScoreLabel.Text = lowestScore.ToString();
+                averageScoreLabel.Text = averageScore.ToString();
             }
             catch (Exception ex)
             {

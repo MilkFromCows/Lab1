@@ -48,6 +48,7 @@ namespace Seating_Chart
                         if (col >= 0 && col <= MAX_COL)
                         {
                             // TODO:  Display the selected seat's price.
+                            priceLabel.Text = prices[row, col].ToString("c");
                         }
                         else
                         {

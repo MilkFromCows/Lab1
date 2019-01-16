@@ -20,20 +20,20 @@ namespace Seating_Chart
         {
             // Variables for the selected row and column
             int row, col;
-            
+
             // Constants for the maximum row and column subscripts
             const int MAX_ROW = 5;
             const int MAX_COL = 3;
 
             // TODO:  Create an array with the seat prices.
-            /*{ {450m, 450m, 450m, 450m},
+            decimal[,] prices = { {450m, 450m, 450m, 450m},
                                   {425m, 425m, 425m, 425m},
                                   {400m, 400m, 400m, 400m},
                                   {375m, 375m, 375m, 375m},
                                   {375m, 375m, 375m, 375m},
                                   {350m, 350m, 350m, 350m}
                                 };
-             */
+            
 
             // Get the selected row number.
             if (int.TryParse(rowTextBox.Text, out row))

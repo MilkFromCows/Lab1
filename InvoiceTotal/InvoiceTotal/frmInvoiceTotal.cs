@@ -22,7 +22,7 @@ namespace InvoiceTotal
 		}
 
         // TODO: declare class variables for array and list here
-
+        decimal[] invoiceTotals = new decimal[5]; // jeff's code...
         private void btnCalculate_Click(object sender, EventArgs e)
 		{
             try

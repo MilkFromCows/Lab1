@@ -22,8 +22,11 @@ namespace FutureValue
         }
 
         // TODO: Declare the rectangular array and the row index here
-        int row = 0; // jeff's code
 
+        const int ROWS = 10; // and constants for rows and cols
+        const int COLS = 4;
+        int row = 0; 
+        string[,] futureValueCalculations = new string[10, 4]; // declared a rectangular array with 10 rows and 4 columns
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {

@@ -78,7 +78,7 @@ namespace InvoiceTotal
             catch (IndexOutOfRangeException)
             {
                 MessageBox.Show(
-                    "You can only enter 3 values",
+                    "You can only enter 5 values",
                     "Entry Error");
             }
 
@@ -88,9 +88,18 @@ namespace InvoiceTotal
 		private void btnExit_Click(object sender, EventArgs e)
 		{
             // TODO: add code that displays dialog boxes here
-            string stringIndexTotals = "The invoice totals will display here.";
+            string stringIndexTotals = "";
 
+            /* foreach decimal total in invoiceTotals
+             *      add that decimal to the string, plus a line break
+             * END foreach
+             */
 
+            foreach(decimal total in invoiceTotals)
+            {
+                if(total != 0m) 
+                stringIndexTotals += total.ToString() + "\n";
+            }
 
             MessageBox.Show(
                 stringIndexTotals, "Invoice totals");

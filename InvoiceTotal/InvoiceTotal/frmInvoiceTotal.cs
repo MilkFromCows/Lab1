@@ -95,11 +95,15 @@ namespace InvoiceTotal
              * END foreach
              */
 
-            foreach(decimal total in invoiceTotals)
+            Array.Sort(invoiceTotals);
+
+            foreach (decimal total in invoiceTotals)
             {
                 if(total != 0m) 
                 stringIndexTotals += total.ToString() + "\n";
             }
+
+
 
             MessageBox.Show(
                 stringIndexTotals, "Invoice totals");

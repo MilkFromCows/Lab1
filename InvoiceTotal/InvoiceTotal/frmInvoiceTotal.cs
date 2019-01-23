@@ -23,6 +23,8 @@ namespace InvoiceTotal
 
         // TODO: declare class variables for array and list here
         decimal[] invoiceTotals = new decimal[5]; // jeff's code...
+        int index = 0; // jeff's code
+
         private void btnCalculate_Click(object sender, EventArgs e)
 		{
             try
@@ -56,7 +58,8 @@ namespace InvoiceTotal
                         txtTotal.Text = invoiceTotal.ToString();
 
                         // TODO:  Add invoice total to the array here
-
+                        invoiceTotals[index] = invoiceTotal; // jeff's code
+                        index++;
                     }
                     else
                     {
@@ -85,6 +88,12 @@ namespace InvoiceTotal
 		private void btnExit_Click(object sender, EventArgs e)
 		{
             // TODO: add code that displays dialog boxes here
+            string stringIndexTotals = "The invoice totals will display here.";
+
+
+
+            MessageBox.Show(
+                stringIndexTotals, "Invoice totals");
 
             this.Close();
 		}

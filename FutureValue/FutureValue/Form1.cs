@@ -26,7 +26,7 @@ namespace FutureValue
         const int ROWS = 10; // and constants for rows and cols
         const int COLS = 4;
         int row = 0; 
-        string[,] futureValueCalculations = new string[10, 4]; // declared a rectangular array with 10 rows and 4 columns
+        string[,] futureValueCalculations = new string[ROWS, COLS]; // declared a rectangular array with 10 rows and 4 columns
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
@@ -49,6 +49,12 @@ namespace FutureValue
                     txtMonthlyInvestment.Focus();
 
                     // TODO: Add the calculation to the rectangular array here
+                    // (monthly investment, Rate, Years, Future Value)
+                    futureValueCalculations[row, 0] = monthlyInvestment.ToString("c");
+                    futureValueCalculations[row, 1] = interestRateYearly.ToString("p1");
+                    futureValueCalculations[row, 2] = years.ToString();
+                    futureValueCalculations[row, 3] = futureValue.ToString("c");
+                    row++;
                 }
             }
             catch (Exception ex)
@@ -62,6 +68,27 @@ namespace FutureValue
         private void btnExit_Click(object sender, EventArgs e)
         {
             // TODO: Display the rectangular array in a dialog box here
+            string message = "Inv/Mo.\tRate\tYears\tFuture Value\t\n";
+            /* nested for loops that build the message
+             * 
+             * for each row
+             *      message += "\n"
+             *      for each column
+             *          message += futureValueCalculations[the current string] + "\t"
+             * END for loops
+             */
+            for(int row = 0; row < ROWS; row++)
+            {
+                message += "\n";
+                for(int col = 0; col < COLS; col++)
+                {
+                    message += futureValueCalculations[row, col] + "\t";
+                }
+            }
+
+
+            MessageBox.Show(
+                message, "Future Value Calculations");
             this.Close();
         }
 

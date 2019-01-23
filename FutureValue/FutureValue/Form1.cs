@@ -22,6 +22,8 @@ namespace FutureValue
         }
 
         // TODO: Declare the rectangular array and the row index here
+        int row = 0; // jeff's code
+
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {

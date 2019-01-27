@@ -123,7 +123,20 @@ namespace TicTacToe
 
         private bool IsDiagonal1Winner()
         {
-            return false;
+            /*     get the symbol from the top left.
+             *     compare it to the others diagonally down.
+             *     If the symbol is empty or not a match, then it's not a winner.
+             *     Otherwise, it's a winner.
+             */
+            string symbol = board[0, 0];
+            for(int row = 1, col = 1; row < SIZE; row++, col++)
+            {
+                if(symbol == EMPTY || board[row, col] != symbol)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private bool IsDiagonal2Winner()

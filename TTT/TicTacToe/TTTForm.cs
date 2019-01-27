@@ -33,6 +33,9 @@ namespace TicTacToe
         const int COLUMN = 2;
         const int DIAGONAL = 3;
 
+        // Rectangular array to hold Xs and Os
+        private string[,] board = new string[SIZE, SIZE];
+
         // This method takes a row and column as parameters and 
         // returns a reference to a label on the form in that position
         private Label GetSquare(int row, int column)

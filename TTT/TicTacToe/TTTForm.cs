@@ -88,9 +88,18 @@ namespace TicTacToe
             return true;
         }
 
+        // modified to use the array instead of the UI. I based it on IsRowWinner.
         private bool IsColumnWinner(int col)
         {
-            return true;
+            string symbol = board[0, col]; // get the symbol from the first row 
+            for (int row = 1; row < SIZE; row++) // compare symbol to all other row symbols
+            {
+                if (symbol == EMPTY || board[row, col] != symbol) // if the symbol is EMPTY or different
+                {
+                    return false; // the col is not a winner
+                }
+            }
+            return true; // the col is a winner
         }
 
         private bool IsAnyColumnWinner()
@@ -188,7 +197,7 @@ namespace TicTacToe
             {
                 for(int col = 0; col < SIZE; col++)
                 {
-                    board[row, col] = EMPTY;
+                    board[row, col] = EMPTY; // assign each element in the rectangulay array an empty string
                 }
             }
 

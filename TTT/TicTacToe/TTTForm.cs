@@ -360,6 +360,7 @@ namespace TicTacToe
             else
             {
                 MakeComputerMove();
+                SyncArrayAndSquares();
                 if (IsWinner(out winningDimension, out winningValue))
                 {
                     HighlightWinner("The Computer", winningDimension, winningValue);

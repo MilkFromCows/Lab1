@@ -132,6 +132,25 @@ namespace TicTacToe
 
         private bool IsFull()
         {
+            /*  go through array with nested for loops
+             *      check if any elements are an empty string
+             *      
+             *      if so, return false
+             *      
+             *   otherwise return true
+             * 
+             */
+
+            for(int row = 0; row < SIZE; row++)
+            {
+                for(int col = 0; col < SIZE; col++)
+                {
+                    if(board[row, col] == EMPTY)
+                    {
+                        return false;
+                    }
+                }
+            }
             return true;
         }
 

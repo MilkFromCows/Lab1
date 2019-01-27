@@ -60,6 +60,18 @@ namespace TicTacToe
         // Use it as a model for writing IsColumnWinner
         private bool IsRowWinner(int row)
         {
+            string symbol = board[row, 0]; // get the symbol from the first column 
+            for (int col = 1; col < SIZE; col++) // compare symbol to all other column symbols
+            {
+                
+                if (symbol == EMPTY || board[row, col] != symbol) // if the symbol is EMPTY or different
+                {
+                    
+                    return false; // the row is not a winner
+                }
+            }
+            return true; // the row is a winner
+            /*
             Label square = GetSquare(row, 0);
             string symbol = square.Text;
             for (int col = 1; col < SIZE; col++)
@@ -69,6 +81,7 @@ namespace TicTacToe
                     return false;
             }
             return true;
+            */
         }
 
         //* TODO:  finish all of these that return true

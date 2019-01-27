@@ -111,22 +111,30 @@ namespace TicTacToe
 
         private bool IsAnyColumnWinner()
         {
-            return true;
+            for(int col = 0; col < SIZE; col++)
+            {
+                if(IsColumnWinner(col))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private bool IsDiagonal1Winner()
         {
-            return true;
+            return false;
         }
 
         private bool IsDiagonal2Winner()
         {
-            Label square = GetSquare(0, (SIZE - 1));
-            string symbol = square.Text;
+            //Label square = GetSquare(0, (SIZE - 1));
+            //string symbol = square.Text;
+            string symbol = board[0, SIZE - 1];
             for (int row = 1, col = SIZE - 2; row < SIZE; row++, col--)
             {
-                square = GetSquare(row, col);
-                if (symbol == EMPTY || square.Text != symbol)
+                //square = GetSquare(row, col);
+                if (symbol == EMPTY || board[row, col] != symbol)
                     return false;
             }
             return true;
@@ -377,6 +385,7 @@ namespace TicTacToe
                 {
                     Label square = GetSquare(row, col);
                     square.Text = board[row, col];
+
                     if(square.Text != EMPTY)
                     {
                         DisableSquare(square);
@@ -404,12 +413,12 @@ namespace TicTacToe
             if (IsWinner(out winningDimension, out winningValue))
             {
                 HighlightWinner("The User", winningDimension, winningValue);
-                //DisableAllSquares();
+                DisableAllSquares(); // This was commented out. I don't know why, because I think it's needed.
             }
             else if (IsFull())
             {
                 resultLabel.Text = "It's a Tie.";
-                //DisableAllSquares();
+                DisableAllSquares(); // This was commented out. I don't know why, because I think it's needed.
             }
             else
             {
@@ -418,12 +427,12 @@ namespace TicTacToe
                 if (IsWinner(out winningDimension, out winningValue))
                 {
                     HighlightWinner("The Computer", winningDimension, winningValue);
-                    //DisableAllSquares();
+                    DisableAllSquares(); // This was commented out. I don't know why, because I think it's needed.
                 }
                 else if (IsFull())
                 {
                     resultLabel.Text = "It's a Tie.";
-                    //DisableAllSquares();
+                    DisableAllSquares(); // This was commented out. I don't know why, because I think it's needed.
                 }
             }
         }
@@ -433,6 +442,7 @@ namespace TicTacToe
             ResetArray();
             ResetSquares();
             EnableAllSquares();
+            resultLabel.Text = EMPTY;
         }
 
         private void button2_Click(object sender, EventArgs e)

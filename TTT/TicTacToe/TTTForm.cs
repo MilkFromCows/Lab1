@@ -179,6 +179,28 @@ namespace TicTacToe
         //* TODO:  finish this
         private void ResetArray()
         {
+            /*  for (int row = 0; row < SIZE; row++) // this is the code for ResetSquares. 
+                {
+                    for (int col = 0; col < SIZE; col++)
+                    {
+                        Label square = GetSquare(row, col);
+                        square.Text = EMPTY;
+                        square.ForeColor = Color.Black;
+                    }
+                } 
+             */
+             /* in nested for loops
+              *     go through the array, assigning an empty string to each element
+              */
+
+            for(int row = 0; row < SIZE; row++)
+            {
+                for(int col = 0; col < SIZE; col++)
+                {
+                    board[row, col] = EMPTY;
+                }
+            }
+
         }
 
         //* TODO:  Modify this so it uses the array rather than the UI to make the move.

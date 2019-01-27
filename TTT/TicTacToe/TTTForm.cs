@@ -188,15 +188,15 @@ namespace TicTacToe
             Random gen = new Random();
             int row;
             int column;
-            Label square;
+            //Label square; 
             do
             {
                 row = gen.Next(0, SIZE);
                 column = gen.Next(0, SIZE);
-                square = GetSquare(row, column);
-            } while (square.Text != EMPTY);
-            square.Text = COMPUTER_SYMBOL;
-            DisableSquare(square);
+                //square = GetSquare(row, column);
+            } while (board[row, column] != EMPTY);
+            board[row, column] = COMPUTER_SYMBOL;
+            //DisableSquare(square);
         }
 
         // ALL OF THESE METHODS MANIPULATE THE UI AND SHOULDN'T CHANGE

@@ -347,6 +347,12 @@ namespace TicTacToe
             //clickedLabel.Text = USER_SYMBOL;
             //DisableSquare(clickedLabel);
 
+            int row, column;
+            Label clickedLabel = (Label)sender;
+            GetRowAndColumn(clickedLabel, out row, out column);
+            board[row, column] = USER_SYMBOL;
+            SyncArrayAndSquares();
+
             if (IsWinner(out winningDimension, out winningValue))
             {
                 HighlightWinner("The User", winningDimension, winningValue);

@@ -63,10 +63,8 @@ namespace TicTacToe
             string symbol = board[row, 0]; // get the symbol from the first column 
             for (int col = 1; col < SIZE; col++) // compare symbol to all other column symbols
             {
-                
                 if (symbol == EMPTY || board[row, col] != symbol) // if the symbol is EMPTY or different
                 {
-                    
                     return false; // the row is not a winner
                 }
             }
@@ -325,6 +323,18 @@ namespace TicTacToe
         // and disable the squares that are not empty (you don't have to enable the others because they're enabled by default.
         private void SyncArrayAndSquares()
         {
+            for(int row = 0; row < SIZE; row++)
+            {
+                for(int col = 0; col < SIZE; col++)
+                {
+                    Label square = GetSquare(row, col);
+                    square.Text = board[row, col];
+                    if(square.Text != EMPTY)
+                    {
+                        DisableSquare(square);
+                    }
+                }
+            }
         }
 
         //* TODO:  modify this so that it uses the array and UI methods appropriately

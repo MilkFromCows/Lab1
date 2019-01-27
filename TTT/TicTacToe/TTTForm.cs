@@ -85,7 +85,14 @@ namespace TicTacToe
         //* TODO:  finish all of these that return true
         private bool IsAnyRowWinner()
         {
-            return true;
+            for(int row = 0; row < SIZE; row++)
+            {
+                if(IsRowWinner(row))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         // modified to use the array instead of the UI. I based it on IsRowWinner.
@@ -145,13 +152,13 @@ namespace TicTacToe
             {
                 for(int col = 0; col < SIZE; col++)
                 {
-                    if(board[row, col] == EMPTY)
+                    if(board[row, col] == EMPTY) // Does the board have any empty strings?
                     {
-                        return false;
+                        return false; // then the board isn't full yet.
                     }
                 }
             }
-            return true;
+            return true; // The board is full
         }
 
         // This method determines if any row, column or diagonal on the board is a winner.

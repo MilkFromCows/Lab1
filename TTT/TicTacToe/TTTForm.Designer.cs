@@ -398,6 +398,7 @@
             this.Controls.Add(this.label1);
             this.Name = "TTTForm";
             this.Text = "Tic Tac Toe";
+            this.Load += new System.EventHandler(this.TTTForm_Load);
             this.ResumeLayout(false);
 
         }

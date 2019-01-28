@@ -35,6 +35,9 @@ namespace TicTacToe
 
         // Rectangular array to hold Xs and Os
         private string[,] board = new string[SIZE, SIZE];
+        
+       
+
 
         // This method takes a row and column as parameters and 
         // returns a reference to a label on the form in that position
@@ -155,7 +158,12 @@ namespace TicTacToe
 
         private bool IsAnyDiagonalWinner()
         {
-            return true;
+            if (IsDiagonal1Winner() || IsDiagonal2Winner())
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private bool IsFull()
@@ -244,7 +252,7 @@ namespace TicTacToe
             {
                 for(int col = 0; col < SIZE; col++)
                 {
-                    board[row, col] = EMPTY; // assign each element in the rectangulay array an empty string
+                    board[row, col] = EMPTY; // assign each element in the rectangular array an empty string
                 }
             }
 
@@ -257,12 +265,10 @@ namespace TicTacToe
             Random gen = new Random();
             int row;
             int column;
-            //Label square; 
             do
             {
                 row = gen.Next(0, SIZE);
                 column = gen.Next(0, SIZE);
-                //square = GetSquare(row, column);
             } while (board[row, column] != EMPTY);
             board[row, column] = COMPUTER_SYMBOL;
             //DisableSquare(square);
@@ -427,6 +433,7 @@ namespace TicTacToe
             {
                 HighlightWinner("The User", winningDimension, winningValue);
                 DisableAllSquares(); // This was commented out. I don't know why, because I think it's needed.
+
             }
             else if (IsFull())
             {
@@ -461,6 +468,15 @@ namespace TicTacToe
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        // This load event was crucial so that the game would be ready to play.
+        // Without it, the form wouldn't be populated with anything except maybe null 
+        // characters or something. Anyways, it works now. 
+        private void TTTForm_Load(object sender, EventArgs e)
+        {
+            ResetArray();
+            SyncArrayAndSquares();
         }
     }
 }
